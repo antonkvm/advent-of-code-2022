@@ -2,7 +2,7 @@ from functools import reduce
 
 
 with open("./day-3-input.txt") as f:
-	rucksacks = [x.strip() for x in f]
+	rucksacks = f.readlines()
 
 	# print("Number of rucksacks:", len(rucksacks))
 

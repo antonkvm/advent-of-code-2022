@@ -2,7 +2,7 @@ import copy
 
 
 with open('./day-5-input.txt') as f:
-	input = [line.strip("\n") for line in f]
+	input = f.readlines()
 
 	# -- 1: extract initial crate and stack positions ---
 
@@ -37,10 +37,10 @@ with open('./day-5-input.txt') as f:
 
 	# --- 2: execute rearrangement procedures ---
 
-	# Setting a list to another list does not duplicate the list, it's just a reference to the same list.
+	# Assigning a list to another variable does not duplicate the list, it's just a reference to the same list.
 	# Using some_list.copy() solves this problem, but only for the first layer in a list.
 	# If a list contains another list, that same second layer list will still just be referenced twice.
-	# To make a full deep copy of a multi-dimensional list, import the copy module and use its deepcopy() method. 
+	# To make a full deep copy of a multi-dimensional list, import the copy module and use it's deepcopy() method. 
 	stacks_cp_1 = copy.deepcopy(stacks)
 	stacks_cp_2 = copy.deepcopy(stacks)
 
