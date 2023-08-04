@@ -44,10 +44,10 @@ def play(rounds: int, part_2_mod: bool):
 					monkey.items[0] *= current_operand
 				else:
 					monkey.items[0] += current_operand
-				# avoid huge numbers by masking the part of the number that is divisible by all test numbers:
 				if not part_2_mod: 
 					monkey.items[0] = math.floor(monkey.items[0] / 3)
 				else:
+					# avoid huge numbers by masking the part of the number that is divisible by all test numbers:
 					monkey.items[0] %= super_modulo
 				if monkey.items[0] % monkey.test == 0:
 					receiving_monkey = all_monkeys[monkey.recipient_if_true]
