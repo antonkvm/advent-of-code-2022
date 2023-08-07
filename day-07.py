@@ -1,7 +1,7 @@
 from functools import reduce
 
 
-with open("./day-7-input.txt") as f:
+with open("./day-07-input.txt") as f:
 	input = f.read().splitlines()
 
 	class Node:

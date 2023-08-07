@@ -1,4 +1,4 @@
-with open("./day-1-input.txt", 'r') as f:
+with open("./day-01-input.txt", 'r') as f:
 	# list = f.readlines()
 	list = [line.strip() for line in f]
 

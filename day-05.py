@@ -1,7 +1,7 @@
 import copy
 
 
-with open('./day-5-input.txt') as f:
+with open('./day-05-input.txt') as f:
 	input = f.readlines()
 
 	# -- 1: extract initial crate and stack positions ---
