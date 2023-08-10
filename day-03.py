@@ -1,7 +1,7 @@
 from functools import reduce
 
 
-with open("./day-03-input.txt") as f:
+with open("./inputs/day-03-input.txt") as f:
 	rucksacks = f.readlines()
 
 	# print("Number of rucksacks:", len(rucksacks))

@@ -1,4 +1,4 @@
-f = open("./day-08-input.txt")
+f = open("./inputs/day-08-input.txt")
 forest = f.read().splitlines()
 forest = [[int(tree) for tree in row] for row in forest]
 

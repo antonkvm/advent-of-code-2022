@@ -1,4 +1,4 @@
-with open('./day-06-input.txt') as f:
+with open('./inputs/day-06-input.txt') as f:
 	input = f.read()
 
 	# traverse string from the left and check if that char is repeated in remaining string to the right:

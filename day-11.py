@@ -1,7 +1,7 @@
 import math
 from functools import reduce
 
-f = open("./day-11-input.txt")
+f = open("./inputs/day-11-input.txt")
 input = [line.strip() for line in f]
 
 class Monkey:

@@ -1,4 +1,4 @@
-with open("./day-02-input.txt") as f:
+with open("./inputs/day-02-input.txt") as f:
 
 	guide = [line.split() for line in f]
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 # (necessary for Position.touches() to take object of own class as argument)
 
-f = open("./day-09-input.txt")
+f = open("./inputs/day-09-input.txt")
 input = f.read().splitlines()
 motions = [motion.split() for motion in input]
 

@@ -1,4 +1,4 @@
-with open("./day-04-input.txt") as f:
+with open("./inputs/day-04-input.txt") as f:
 	
 	input = f.readlines()
 	input = [pair.split(",") for pair in input]

@@ -1,4 +1,4 @@
-f = open("./day-10-input.txt")
+f = open("./inputs/day-10-input.txt")
 input = f.read().split()
 
 x = 1
