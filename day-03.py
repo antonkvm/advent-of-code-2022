@@ -4,32 +4,25 @@ from functools import reduce
 with open("./inputs/day-03-input.txt") as f:
 	rucksacks = f.readlines()
 
-	# print("Number of rucksacks:", len(rucksacks))
-
 	print("--- Part One ---")
 
 	duplicates = []
-	for sack in rucksacks:
-		# We assume len(sack) to be even. Still, we need to do // integer devision to guarantee an int as index.
-		compA = sack[0:len(sack)//2]	# slicing includes the start index and excludes the end index!
-		compB = sack[len(sack)//2:]
-
+	for rucksack in rucksacks:
+		compA = rucksack[:len(rucksack)//2]
+		compB = rucksack[len(rucksack)//2:]
 		for item in compA:
-			duplicateIndex = compB.find(item)
-			if duplicateIndex != -1:
+			if compB.find(item) != -1:
 				duplicates += item
-				duplicateFound = True
 				break
 		
-	# print("Number of duplicates:", len(duplicates))
-
 	def convertItemToNumber(itemAsLetter: str):
 		x = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-		if itemAsLetter.islower(): return x.lower().find(itemAsLetter) + 1
-		else: return x.find(itemAsLetter) + 1 + 26
+		if itemAsLetter.islower():
+			return x.lower().find(itemAsLetter) + 1
+		else:
+			return x.find(itemAsLetter) + 1 + 26
 
 	result_1 = list(map(convertItemToNumber, duplicates))
-	# print("Number of converted duplicates:", len(result))
 	result_1 = reduce(lambda a, b : a + b, result_1, 0)
 	print(result_1)
 
@@ -38,10 +31,8 @@ with open("./inputs/day-03-input.txt") as f:
 
 	# create a list of list: each inner list contains a group of 3 elves:
 	all_groups = []
-	for i in range(len(rucksacks) // 3):
-		all_groups.append([])
-		for j in range(3):
-			all_groups[i].append(rucksacks[3*i+j])
+	for i in range(0, len(rucksacks), 3):
+		all_groups.append([x for x in rucksacks[i : i + 3]])
 
 	badges = []
 	for group in all_groups:
