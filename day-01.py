@@ -1,19 +1,19 @@
 with open("./inputs/day-01-input.txt", 'r') as f:
 	# list = f.readlines()
-	list = [line.strip() for line in f]
+	input = [line.strip() for line in f]
 
-	listOfSums = []
-	tempList = []
-	for i in range(len(list)):
-		if list[i] != "":
-			tempList.append(int(list[i]))			
-		if list[i] == "" or list[i] is None:
-			listOfSums.append(sum(tempList))
-			tempList = []
+	list_of_sums = []
+	temp_sum = []
+	for i in input:
+		if i:
+			temp_sum.append(int(i))
+		else:
+			list_of_sums.append(sum(temp_sum))
+			temp_sum = []
 
 	print("--- Part One ---")
-	print(max(listOfSums))
+	print(max(list_of_sums))
 
 	print("-- Part Two ---")	
-	listOfSums.sort(reverse = True)
-	print(sum(listOfSums[0:3]))
+	list_of_sums.sort(reverse = True)
+	print(sum(list_of_sums[0:3]))
