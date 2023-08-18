@@ -60,7 +60,7 @@ def print_packets(packets: list):
     for i, p in enumerate(packets):
         print(f"Packet {i+1}: {p}")
     
-def quicksort(array: list) -> list:
+def quick_sort(array: list) -> list:
     if len(array) <= 1:
         return array
     else:
@@ -68,7 +68,30 @@ def quicksort(array: list) -> list:
         left = [x for x in array if check_packet_order(x, pivot) == 1]
         middle = [x for x in array if check_packet_order(x, pivot) == -1]
         right = [x for x in array if check_packet_order(x, pivot) == 0]
-        return quicksort(left) + middle + quicksort(right)
+        return quick_sort(left) + middle + quick_sort(right)
+    
+def merge_sort(array: list) -> list:
+    if len(array) <= 1:
+        return array
+    else:
+        mid_point = len(array) // 2
+        left = merge_sort(array[:mid_point])
+        right = merge_sort(array[mid_point:])
+    return merge(left, right)
+
+def merge(left: list, right: list) -> list:
+    result = []
+    i, j = 0, 0
+    while i < len(left) and j < len(right):
+        if check_packet_order(left, right) == 1:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
 
 sum_inorder_IDs = 0
 divider_packets = [[[2]], [[6]]]
@@ -83,7 +106,7 @@ for i in range(0, len(input), 3):
     unsorted_packets.extend([copy.deepcopy(x) for x in [left, right]])
     sum_inorder_IDs += id if check_packet_order(left, right) == 1 else 0
     
-sorted_packets = quicksort(unsorted_packets)
+sorted_packets = quick_sort(unsorted_packets) # faster than merge sort
 divider_indices = [sorted_packets.index(x) + 1 for x in sorted_packets if x in divider_packets]
 decoder_key = divider_indices[0] * divider_indices[1]
 
