@@ -60,7 +60,7 @@ def print_packets(packets: list):
     for i, p in enumerate(packets):
         print(f"Packet {i+1}: {p}")
     
-def quicksort(array :list) -> list:
+def quicksort(array: list) -> list:
     if len(array) <= 1:
         return array
     else:
