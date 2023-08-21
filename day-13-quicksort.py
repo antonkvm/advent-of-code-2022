@@ -66,9 +66,8 @@ def quick_sort(array: list) -> list:
     else:
         pivot = array[len(array) // 2]
         left = [x for x in array if check_packet_order(x, pivot) == 1]
-        middle = [x for x in array if check_packet_order(x, pivot) == -1]
         right = [x for x in array if check_packet_order(x, pivot) == 0]
-        return quick_sort(left) + middle + quick_sort(right)
+        return quick_sort(left) + [pivot] + quick_sort(right)
     
 def merge_sort(array: list) -> list:
     if len(array) <= 1:
