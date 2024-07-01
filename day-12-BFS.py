@@ -17,6 +17,7 @@ class Heightmap:
             res += "\n"
         return res
     
+    # TODO this should probably return a dict
     def find_start_and_end(self) -> list[tuple[int, int]]:
         '''Returns the coordinates of the start and end position as two (x,y) tuples inside of a list.'''
         start_end = [None, None]
